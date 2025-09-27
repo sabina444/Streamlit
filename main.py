@@ -1,7 +1,7 @@
 import streamlit as st
 from transformers import pipeline
 from PIL import Image
-import io
+import requests
 
 #Заголовок приложения
 st.title("Распознавание изображений с помощью Hugging Face")
@@ -16,7 +16,7 @@ if uploaded_file is not None:
   st.image(image, caption="Загруженное изображение", use_container_width = True)
   
   # Инициализация модели для классификации изображений
-  classifier = pipeline("image-classification", model="google/vit-base-patch16-224")
+  classifier = pipeline("image-classification", model="nvidia/mit-b1")
   
   # Распознавание изображения и запись результатов
   results = classifier(image)
